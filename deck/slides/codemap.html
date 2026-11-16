@@ -1,0 +1,9 @@
+<section id="codemap" class="center" data-transition="fade">
+<p class="eyebrow in" style="--i:0">Generated knowledge</p>
+<div class="stack">
+<h1 class="statement in" style="--i:1">Never describe the code.</h1>
+<p class="statement grad in" style="--i:3">Generate the map.</p>
+</div>
+<p class="lede in" style="--i:5">One script reads the source and writes the code map: modules, routes, state diagrams. The build fails if it is stale.</p>
+<aside>Your instinct about markdown was right. A hand-written description of the codebase goes stale the day after it is written, and an agent cannot tell. In version 2, scripts/codemap.py generates docs/CODEMAP.md from the source: each module’s public classes and functions, HTTP routes, exported TypeScript names, and a diagram for every transition table. A hook blocks hand edits, and CI fails when the file is out of date. Markdown keeps only what code cannot hold: goals, decisions and specs.</aside>
+</section>

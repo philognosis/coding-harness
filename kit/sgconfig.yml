@@ -1,0 +1,4 @@
+# ast-grep configuration: project-specific lint rules live in lint-rules/.
+# Run: ast-grep scan        Install: uv tool install ast-grep-cli
+ruleDirs:
+  - lint-rules

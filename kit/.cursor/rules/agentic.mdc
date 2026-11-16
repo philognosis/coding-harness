@@ -1,0 +1,43 @@
+---
+description: Multi-agent system standards
+globs: **/agents/**,**/prompts/**,**/tools/**,**/evals/**
+alwaysApply: false
+---
+
+<!-- Generated from .claude/rules by scripts/sync_agent_config.py. Edit the source. -->
+# Multi-agent system standards
+
+## Agents
+
+- One agent, one job. An agent's description says when to use it and what it
+  returns, in two sentences.
+- Agents are configuration (prompt, tools, model, limits) registered in one
+  place, not classes with bespoke control flow. Adding an agent must not require
+  touching the orchestrator.
+- Orchestration is explicit code or a declared graph. No agent decides the
+  topology at runtime unless an ADR says so.
+- Every run has hard limits: max turns, max tokens or cost, wall-clock timeout.
+
+## Tools
+
+- A tool is a typed function: Pydantic input model, Pydantic output model, a
+  docstring written for the model that will call it.
+- Tools return errors as data the agent can act on; they do not raise through
+  the loop.
+- Tools with side effects are idempotent or take an idempotency key, and declare
+  whether they need human approval.
+
+## Prompts
+
+- Prompts live in versioned files under `prompts/`, not inline strings. A prompt
+  change is a code change: reviewed, and covered by an eval.
+- Model names and provider settings come from config, never literals in code.
+
+## Evals and observability
+
+- Each agent has at least one eval in `evals/` that fails when its core
+  behaviour regresses. A prompt or model change runs the evals before merge.
+- Every model call and tool call is traced with a run id, the agent name,
+  token counts and latency.
+- Shared state between agents goes through one typed store, not ad-hoc globals
+  or message-passing by string.

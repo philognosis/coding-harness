@@ -1,0 +1,42 @@
+---
+description: Python standards
+globs: **/*.py,**/pyproject.toml
+alwaysApply: false
+---
+
+<!-- Generated from .claude/rules by scripts/sync_agent_config.py. Edit the source. -->
+# Python standards
+
+## Project and dependencies
+
+- Every Python project is a uv project with a `pyproject.toml`. Add packages with
+  `uv add`, dev tools with `uv add --dev`. Run everything through `uv run`.
+- Ruff is the formatter and linter; its config lives in `pyproject.toml`.
+- Target the Python version pinned in `pyproject.toml`; use its modern syntax
+  (`X | None`, `list[str]`, `match` where it reads better).
+
+## APIs
+
+- HTTP APIs are FastAPI. One `APIRouter` per resource under `app/api/routes/`.
+- Request and response bodies are Pydantic models, never bare dicts.
+- Route functions stay thin: parse, call a service function, return. Logic lives
+  in `app/services/`, I/O in `app/clients/` or `app/repositories/`.
+- Inject dependencies with `Depends`; do not import global clients into routes.
+
+## Configuration
+
+- All settings are read in one module, `app/core/config.py`, using
+  `pydantic-settings` (`BaseSettings`, `env_file=".env"`). Nothing else calls
+  `os.environ` or `os.getenv`.
+- Every setting has an entry in `.env.example` with a safe placeholder and a
+  one-line comment. Adding a setting means updating both files in one change.
+
+## Readability
+
+- Type hints on every function signature. No `Any` without a comment saying why.
+- Names say what a thing is; no abbreviations beyond the domain's own.
+- Functions do one thing and fit on a screen. Prefer early returns to nesting.
+- Docstrings state intent and non-obvious constraints, not a restatement of the code.
+- Raise specific exceptions. Never `except Exception: pass`.
+- Use `logging` (structured where available), never `print`, in application code.
+- Async all the way down in request paths: no blocking calls inside `async def`.

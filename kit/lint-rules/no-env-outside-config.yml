@@ -1,0 +1,19 @@
+id: no-env-outside-config
+language: python
+severity: error
+message: Read settings from the Settings object, not from the environment.
+note: |
+  All configuration is read once, in app/core/config.py, with pydantic-settings.
+  Add the field to Settings, document it in .env.example, and inject
+  `settings` where you need it. Reading os.environ elsewhere hides required
+  config from .env.example and from tests.
+rule:
+  any:
+    - pattern: os.getenv($$$ARGS)
+    - pattern: os.environ.get($$$ARGS)
+    - pattern: os.environ[$KEY]
+ignores:
+  - "**/core/config.py"
+  - "**/tests/**"
+  - ".claude/**"
+  - "scripts/**"

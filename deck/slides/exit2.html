@@ -1,0 +1,12 @@
+<section id="exit2" data-transition="fade">
+<div class="split">
+<p class="giant grad in" style="--i:0">2</p>
+<div class="split-body">
+<p class="eyebrow in" style="--i:1">Hooks, up close</p>
+<h2 class="title in" style="--i:2">The exit code that means no.</h2>
+<p class="lede in" style="--i:3">A hook runs before the agent acts. Exit with 2 and the action is blocked. The message tells the agent why, so it changes course.</p>
+<p class="text in" style="--i:4">Exit 1 does not block. Every guard in the kit uses 2.</p>
+</div>
+</div>
+<aside>The single most useful detail about hooks. In Claude Code, a PreToolUse hook that exits with code 2 stops the tool call, and whatever it wrote to stderr is shown to the agent as the reason. Cursor’s docs describe the same rule. The kit’s guard_bash.py uses it to block pushes to main, force-pushes, pip install and npm install, among others.</aside>
+</section>

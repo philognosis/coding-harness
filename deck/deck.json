@@ -1,0 +1,30 @@
+{
+  "v": 5,
+  "createdOnFiles": {"v": 1, "at": "2026-11-16T18:00:00Z"},
+  "lists": "css",
+  "format": {"v": 1, "shared": ["project/deck.css"]},
+  "title": "The Harness v2 — Structure Over Prose",
+  "cover": "cover",
+  "order": [
+    "cover", "forget", "shift",
+    "talk", "critique", "rungs",
+    "ideas", "idea-state", "idea-budget", "idea-guarantee", "idea-feedback", "idea-review", "idea-copy",
+    "machine", "codemap", "lint",
+    "toolkit", "exit2", "loop", "layers",
+    "memory", "decide", "learn", "radar",
+    "ladder", "old", "numbers", "measure", "close"
+  ],
+  "sections": {
+    "why": {"description": "Agents forget, so the work moves from prompts to the environment.", "start": "cover"},
+    "v2": {"description": "What a recent talk gets right, what it misses, and the principle v2 takes from both.", "start": "talk"},
+    "ideas": {"description": "The six ideas the harness rests on.", "start": "ideas"},
+    "structure": {"description": "Structure in the code: state machines, a generated code map and lint that teaches.", "start": "machine"},
+    "tools": {"description": "The tools, the seven-command loop and the layers of boundaries.", "start": "toolkit"},
+    "memory": {"description": "How the repo remembers, decides, learns and stays current.", "start": "memory"},
+    "next": {"description": "Where this goes: earned autonomy, and how to start.", "start": "ladder"}
+  },
+  "faces": {
+    "inter": {"family": "Inter", "href": "https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap"}
+  },
+  "designSystems": []
+}

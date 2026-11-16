@@ -1,0 +1,16 @@
+<section id="machine" class="alt" data-transition="fade">
+<div class="head">
+<p class="eyebrow in" style="--i:0">State machines</p>
+<h2 class="title in" style="--i:1">Make the machine the code.</h2>
+<p class="lede in" style="--i:2">The diagram and the tests are generated from one table.</p>
+</div>
+<div class="row">
+<div class="card in" style="--i:3"><p class="card-label">1</p><h3 class="card-title">An Enum of states</h3><p class="card-text">No bare strings. A new state breaks the build until every handler knows it.</p></div>
+<div class="card in" style="--i:4"><p class="card-label">2</p><h3 class="card-title">One transition table</h3><p class="card-text">Every legal move, written as data. Anything not listed is illegal.</p></div>
+<div class="card in" style="--i:5"><p class="card-label">3</p><h3 class="card-title">One function</h3><p class="card-text">The only place state changes. An illegal move raises an error.</p></div>
+</div>
+<div class="pills in" style="--i:7">
+<p class="pill">queued</p><p class="arrow">→</p><p class="pill">running</p><p class="arrow">→</p><p class="pill">waiting for approval</p><p class="arrow">→</p><p class="pill">running</p><p class="arrow">→</p><p class="pill-done">succeeded</p>
+</div>
+<aside>The talk draws a statechart after the fact so a reviewer can check the agent understood. Version 2 goes one step further: the state machine is the code. An Enum, one TRANSITIONS table and one transition function. Because the table is data, a script draws the diagram and four tests walk it, including a property-based test of random moves. You confirm the diagram in the new /model step, before any behaviour is written. Use a machine when something has three or more states and the order of moves matters, such as an agent run, a chat turn or a candidate pipeline. Plain request-and-response code needs only a typed function.</aside>
+</section>

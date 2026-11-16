@@ -1,0 +1,22 @@
+<section id="layers" data-transition="fade">
+<div class="head">
+<h2 class="title in" style="--i:0">Design first. Then eight guards.</h2>
+<p class="lede in" style="--i:1">Nothing that matters depends on the model remembering.</p>
+</div>
+<div class="cols">
+<div class="rows">
+<div class="line-narrow in" style="--i:2"><p class="line-num">0</p><p class="line-title">Design</p><p class="line-text">the code can’t say it</p></div>
+<div class="line-narrow in" style="--i:3"><p class="line-num">1</p><p class="line-title">Permissions</p><p class="line-text">before a tool runs</p></div>
+<div class="line-narrow in" style="--i:4"><p class="line-num">2</p><p class="line-title">Command guard</p><p class="line-text">before each command</p></div>
+<div class="line-narrow in" style="--i:5"><p class="line-num">3</p><p class="line-title">File guard</p><p class="line-text">before each edit</p></div>
+<div class="line-narrow in" style="--i:6"><p class="line-num">4</p><p class="line-title">Edit loop</p><p class="line-text">after each edit</p></div>
+</div>
+<div class="rows">
+<div class="line-narrow in" style="--i:3"><p class="line-num">5</p><p class="line-title">Rules</p><p class="line-text">while writing</p></div>
+<div class="line-narrow in" style="--i:4"><p class="line-num">6</p><p class="line-title">Stop gate</p><p class="line-text">before finishing</p></div>
+<div class="line-narrow in" style="--i:5"><p class="line-num">7</p><p class="line-title">Review</p><p class="line-text">before a pull request</p></div>
+<div class="line-narrow in" style="--i:6"><p class="line-num">8</p><p class="line-title">CI</p><p class="line-text">on every pull request</p></div>
+</div>
+</div>
+<aside>Version 1 had eight layers that guard what the agent does. Version 2 puts a design layer above them that guards what the code can say: types, state machines and import boundaries, so an illegal state or a wrong-way dependency fails the type check. Two guards also grew: the file guard now blocks hand edits to the generated code map and asks before the golden eval set is changed, and CI now fails on a stale code map or a project lint rule.</aside>
+</section>

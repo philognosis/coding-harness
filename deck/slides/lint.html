@@ -1,0 +1,9 @@
+<section id="lint" class="center" data-transition="fade">
+<p class="eyebrow in" style="--i:0">Lint that teaches</p>
+<div class="stack">
+<h1 class="statement in" style="--i:1">Put the lesson</h1>
+<p class="statement grad in" style="--i:3">in the error message.</p>
+</div>
+<p class="lede in" style="--i:5">The agent reads the fix at the moment it makes the mistake, not in a file it loaded an hour ago.</p>
+<aside>A practice taken from the talk. Project-specific rules live in the lint-rules folder as small YAML files run by ast-grep. Each has a message that says what to do instead and a note that says why. The kit ships one tested example: reading environment variables anywhere except the settings module is an error, and the message points to the settings object and .env.example. General rules stay in Ruff and ESLint; this folder is for rules about your project’s own design.</aside>
+</section>
